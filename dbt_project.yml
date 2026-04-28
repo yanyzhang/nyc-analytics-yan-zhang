@@ -21,14 +21,14 @@ models:
  nyc_analytics:
    +materialized: table
 
-   assignment_work:
+   project_work:
      staging:
        +materialized: table
-       +schema: nyc_transit_restaurants_staging
+       +schema: nyc_group5_raw_data_staging
 
      marts:
        +materialized: table
-       +schema: nyc_transit_restaurants_marts
+       +schema: nyc_group5_raw_data_marts
       
        shared:
          +materialized: table
