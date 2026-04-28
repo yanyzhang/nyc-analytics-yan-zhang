@@ -89,3 +89,25 @@ sources:
             description: "Dynamically added by Socrata Ingester"
           - name: road_ramp
             description: "Dynamically added by Socrata Ingester"
+
+      - name: source_nyc_dog_licensing
+        description: "Raw NYC dog licensing data"
+        columns:
+          - name: animalname
+            description: "User-provided dog name"
+          - name: animalgender
+            description: "M (Male) or F (Female) dog gender"
+          - name: animalbirth
+            description: "Year dog was born"
+          - name: breedname
+            description: "Dog breed"
+          - name: zipcode
+            description: "Owner zip code"
+          - name: licenseissueddate
+            description: "Date the dog license was issued"
+          - name: licenseexpireddate
+            description: "Date the dog license expires"
+          - name: extract_year
+            description: "The year this record was extracted"
+
+
