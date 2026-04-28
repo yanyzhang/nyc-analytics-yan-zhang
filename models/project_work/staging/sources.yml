@@ -111,3 +111,14 @@ sources:
             description: "The year this record was extracted"
 
 
+      - name: Dim_Animal_CHaracteristics
+        description: "Animal characteristics dimension mapping"
+        columns:
+          - name: breed_name
+            description: "Name of the dog breed"
+          - name: size_category
+            description: "Size classification of the breed"
+          - name: temperament
+            description: "General temperament of the breed"
+          - name: source_note
+            description: "Source notes or references for the characteristics"
