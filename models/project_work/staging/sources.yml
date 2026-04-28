@@ -90,6 +90,22 @@ sources:
           - name: road_ramp
             description: "Dynamically added by Socrata Ingester"
 
+
+
+
+      - name: Dim_Animal_CHaracteristics
+        description: "Animal characteristics dimension mapping"
+        columns:
+          - name: breed_name
+            description: "Name of the dog breed"
+          - name: size_category
+            description: "Size classification of the breed"
+          - name: temperament
+            description: "General temperament of the breed"
+          - name: source_note
+            description: "Source notes or references for the characteristics"
+
+
       - name: source_nyc_dog_licensing
         description: "Raw NYC dog licensing data"
         columns:
@@ -109,16 +125,3 @@ sources:
             description: "Date the dog license expires"
           - name: extract_year
             description: "The year this record was extracted"
-
-
-      - name: Dim_Animal_CHaracteristics
-        description: "Animal characteristics dimension mapping"
-        columns:
-          - name: breed_name
-            description: "Name of the dog breed"
-          - name: size_category
-            description: "Size classification of the breed"
-          - name: temperament
-            description: "General temperament of the breed"
-          - name: source_note
-            description: "Source notes or references for the characteristics"
