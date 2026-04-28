@@ -1,0 +1,91 @@
+version: 2
+
+sources:
+  - name: group5_raw
+    database: data-analytics-project-485903
+    schema: nyc_group5_raw_data
+    tables:
+      - name: source_311nyc_service_requests
+        description: "Raw 311 NYC service requests data"
+        columns:
+          - name: unique_key
+            description: "Unique ID for the service request"
+            tests:
+              - unique
+              - not_null
+          - name: created_date
+            description: "Date and time the request was created"
+          - name: closed_date
+            description: "Date and time the request was closed"
+          - name: agency
+            description: "Agency code"
+          - name: agency_name
+            description: "Full name of the agency"
+          - name: complaint_type
+            description: "Type of complaint"
+          - name: descriptor
+            description: "Further description of the complaint"
+          - name: location_type
+            description: "Location where the incident occurred"
+          - name: incident_zip
+            description: "Zip code of the incident location"
+          - name: incident_address
+            description: "Street address of the incident"
+          - name: latitude
+            description: "Latitude coordinate"
+          - name: longitude
+            description: "Longitude coordinate"
+          - name: address_type
+            description: "Dynamically added by Socrata Ingester"
+          - name: bbl
+            description: "Dynamically added by Socrata Ingester"
+          - name: borough
+            description: "Dynamically added by Socrata Ingester"
+          - name: city
+            description: "Dynamically added by Socrata Ingester"
+          - name: community_board
+            description: "Dynamically added by Socrata Ingester"
+          - name: council_district
+            description: "Dynamically added by Socrata Ingester"
+          - name: cross_street_1
+            description: "Dynamically added by Socrata Ingester"
+          - name: cross_street_2
+            description: "Dynamically added by Socrata Ingester"
+          - name: descriptor_2
+            description: "Dynamically added by Socrata Ingester"
+          - name: facility_type
+            description: "Dynamically added by Socrata Ingester"
+          - name: intersection_street_1
+            description: "Dynamically added by Socrata Ingester"
+          - name: intersection_street_2
+            description: "Dynamically added by Socrata Ingester"
+          - name: landmark
+            description: "Dynamically added by Socrata Ingester"
+          - name: open_data_channel_type
+            description: "Dynamically added by Socrata Ingester"
+          - name: park_borough
+            description: "Dynamically added by Socrata Ingester"
+          - name: park_facility_name
+            description: "Dynamically added by Socrata Ingester"
+          - name: police_precinct
+            description: "Dynamically added by Socrata Ingester"
+          - name: resolution_action_updated_date
+            description: "Dynamically added by Socrata Ingester"
+          - name: resolution_description
+            description: "Dynamically added by Socrata Ingester"
+          - name: status
+            description: "Dynamically added by Socrata Ingester"
+          - name: street_name
+            description: "Dynamically added by Socrata Ingester"
+          - name: x_coordinate_state_plane
+            description: "Dynamically added by Socrata Ingester"
+          - name: y_coordinate_state_plane
+            description: "Dynamically added by Socrata Ingester"
+          - name: bridge_highway_direction
+            description: "Dynamically added by Socrata Ingester"
+          - name: bridge_highway_name
+            description: "Dynamically added by Socrata Ingester"
+          - name: bridge_highway_segment
+            description: "Dynamically added by Socrata Ingester"
+          - name: road_ramp
+            description: "Dynamically added by Socrata Ingester"
