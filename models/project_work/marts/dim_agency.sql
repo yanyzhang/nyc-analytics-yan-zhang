@@ -1,18 +1,10 @@
--- Agency dimension shared by both sources
+-- Agency dimension (Sourced only from 311 data)
 
-WITH all_agencies AS (
-    -- Get agencies from 311 requests
+WITH agency_data AS (
     SELECT DISTINCT
         agency_name
     FROM {{ ref('stg_311nyc_service_requests') }}
     WHERE agency_name IS NOT NULL
-
-    UNION DISTINCT
-
-    -- Provide the implicit agency for all dog licensing records
-    SELECT DISTINCT
-        'Department of Health and Mental Hygiene' AS agency_name
-    FROM {{ ref('stg_nyc_dog_licensing') }}
 ),
 
 agency_dimension AS (
@@ -22,7 +14,7 @@ agency_dimension AS (
         
         agency_name
         
-    FROM all_agencies
+    FROM agency_data
 )
 
 SELECT * FROM agency_dimension
