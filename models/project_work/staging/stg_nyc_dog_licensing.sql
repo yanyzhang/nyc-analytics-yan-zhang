@@ -12,7 +12,7 @@ cleaned AS (
 
         -- Clean messy user-input breeds using keyword matching
         CASE 
--- 1. The Core Mixes & Crosses (Catches misspellings like 'Doole')
+            -- 1. The Core Mixes & Crosses (Catches misspellings like 'Doole')
             WHEN UPPER(TRIM(breedname)) LIKE '%MIX%' OR UPPER(TRIM(breedname)) LIKE '%CROSS%' OR UPPER(TRIM(breedname)) LIKE '%MUTT%' THEN 'MIXED/OTHER'
             WHEN UPPER(TRIM(breedname)) LIKE '%POODLE%' OR UPPER(TRIM(breedname)) LIKE '%DOODLE%' OR UPPER(TRIM(breedname)) LIKE '%DOOLE%' THEN 'POODLE'
             WHEN UPPER(TRIM(breedname)) LIKE '%RETREIVER%' THEN 'RETRIEVER'
@@ -40,10 +40,11 @@ cleaned AS (
             WHEN UPPER(TRIM(breedname)) LIKE '%MASTIFF%' THEN 'MASTIFF'
             WHEN UPPER(TRIM(breedname)) LIKE '%HUSKY%' THEN 'HUSKY'
             WHEN UPPER(TRIM(breedname)) LIKE '%BERNARD%' THEN 'SAINT BERNARD'
-            -- Catch Poodle mixes not using "Doodle"
+            
+            -- 4. Catch Poodle mixes not using "Doodle"
             WHEN UPPER(TRIM(breedname)) LIKE '%POO%' THEN 'POODLE'
             
-            -- Catch specific abbreviations and unmapped working breeds
+            -- 5. Catch specific abbreviations and unmapped working breeds
             WHEN UPPER(TRIM(breedname)) LIKE '%WESTIE%' THEN 'WEST HIGHLAND WHITE TERRIER'
             WHEN UPPER(TRIM(breedname)) LIKE '%CATTLE%' THEN 'CATTLEDOG'
             WHEN UPPER(TRIM(breedname)) LIKE '%PORTUGESE%' THEN 'PORTUGUESE WATER DOG'
