@@ -5,13 +5,14 @@ WITH source AS (
 
 cleaned AS (
     SELECT
-        -- Standardize the breed name to ensure perfect joins with the licensing data
-        TRIM(breed_name) AS breed_name,
+        -- Standardize the breed name to UPPERCASE to ensure perfect joins
+        UPPER(TRIM(breed_name)) AS breed_name,
         
         -- Standardize categorical data
         UPPER(TRIM(size_category)) AS size_category,
         TRIM(temperament) AS temperament,
-        TRIM(source_note) AS source_note,
+        
+        -- (Removed source_note as it is no longer in the raw table)
         
         -- Metadata
         CURRENT_TIMESTAMP() AS _stg_loaded_at
