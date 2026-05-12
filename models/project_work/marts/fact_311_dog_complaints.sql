@@ -23,6 +23,10 @@ dim_location_type AS (
     SELECT * FROM {{ ref('dim_location_type') }}
 ),
 
+dim_agency AS (
+    SELECT * FROM {{ ref('dim_agency') }}
+),
+
 fact_311_complaints AS (
     SELECT
         -- Surrogate key
@@ -42,6 +46,8 @@ fact_311_complaints AS (
         d_addr.incident_address_key AS incident_address_key,
         d_loc.location_key AS location_key,
         d_loc_type.location_type_key AS location_type_key,
+        dz.zipcode_key AS zipcode_key,
+        d_agency.agency_key AS agency_key,
 
         -- Measures
         CASE
@@ -70,6 +76,11 @@ fact_311_complaints AS (
     LEFT JOIN dim_address d_addr
         ON s.community_board = d_addr.community_board 
         AND s.council_district = d_addr.council_district
+    LEFT JOIN {{ ref('dim_zipcode') }} dz
+        ON s.incident_zip = dz.zipcode
+        AND s.borough = dz.borough
+    LEFT JOIN dim_agency d_agency
+        ON s.agency = d_agency.agency
         
     --  location  JOIN
     LEFT JOIN dim_location d_loc
